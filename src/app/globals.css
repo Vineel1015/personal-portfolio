@@ -1,0 +1,132 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&family=DotGothic16&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 255, 255, 255;
+  --background-start-rgb: 0, 0, 0;
+  --background-end-rgb: 0, 0, 0;
+  --primary: #00ff00;
+  --secondary: #ff00ff;
+  --background: #000000;
+  --text: #ffffff;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    rgb(var(--background-end-rgb))
+  )
+  rgb(var(--background-start-rgb));
+  font-family: 'DotGothic16', sans-serif;
+}
+
+.pixelated {
+  image-rendering: pixelated;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: crisp-edges;
+}
+
+.pixel-border {
+  border: 4px solid var(--text);
+  box-shadow: 4px 4px 0px var(--text);
+}
+
+.pixel-text {
+  font-family: 'DotGothic16', sans-serif;
+  line-height: 1.6;
+  letter-spacing: 0.5px;
+}
+
+.pixel-text-title {
+  font-family: 'Press Start 2P', cursive;
+  line-height: 1.4;
+  letter-spacing: 1px;
+}
+
+.pixel-button {
+  font-family: 'DotGothic16', sans-serif;
+  line-height: 1.4;
+  letter-spacing: 0.5px;
+}
+
+.pixel-button:hover {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0px var(--text);
+}
+
+.pixel-button:active {
+  transform: translate(4px, 4px);
+  box-shadow: none;
+}
+
+.pixel-card {
+  border: 4px solid var(--text);
+  box-shadow: 8px 8px 0px var(--text);
+  transition: all 0.2s ease;
+  padding: 1.5rem;
+}
+
+.pixel-card:hover {
+  transform: translate(4px, 4px);
+  box-shadow: 4px 4px 0px var(--text);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 16px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--background);
+  border: 4px solid var(--text);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--text);
+  border: 4px solid var(--background);
+}
+
+/* Pixel art background pattern */
+.pixel-bg {
+  background-color: var(--background);
+  background-image: 
+    linear-gradient(45deg, var(--text) 25%, transparent 25%),
+    linear-gradient(-45deg, var(--text) 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, var(--text) 75%),
+    linear-gradient(-45deg, transparent 75%, var(--text) 75%);
+  background-size: 20px 20px;
+  background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
+  opacity: 0.1;
+}
+
+/* Custom cursor styles */
+* {
+  cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' style='font-size: 16px'><text y='16'>👆</text></svg>"), auto;
+}
+
+a, button, [role="button"] {
+  cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' style='font-size: 16px'><text y='16'>👆</text></svg>"), pointer;
+}
+
+/* Pixelated cursor for text selection */
+::selection {
+  background: var(--primary);
+  color: var(--background);
+} 
